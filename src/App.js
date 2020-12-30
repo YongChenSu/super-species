@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Routes from "./routes";
+import { HashRouter as Router } from "react-router-dom";
+import { Container } from "@material-ui/core";
+import Header from "./components/common/Header";
+import styled from "styled-components";
 
-function App() {
+const Content = styled.div`
+  margin-top: 4rem;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="md">
+      <Router>
+        <Header />
+        <Content>
+          <Routes />
+        </Content>
+      </Router>
+    </Container>
   );
-}
+};
 
 export default App;
