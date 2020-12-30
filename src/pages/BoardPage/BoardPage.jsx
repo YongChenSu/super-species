@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
@@ -122,6 +122,7 @@ const BoardPage = () => {
   return (
     <>
       {isLoadingPostMessage && <Loading>Loading ...</Loading>}
+
       <Title>留言板</Title>
 
       <MessageForm onSubmit={handleFormSubmit}>
@@ -165,4 +166,4 @@ const BoardPage = () => {
   );
 };
 
-export default BoardPage;
+export default memo(BoardPage);

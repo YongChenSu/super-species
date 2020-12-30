@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   height: 4rem;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -14,6 +14,8 @@ const HeaderContainer = styled.div`
   border-bottom: 1px solid #ccc;
   padding: 0 2rem;
   box-sizing: border-box;
+  background-color: #cde6ed;
+  z-index: 100;
 `;
 
 const Brand = styled.div`
@@ -54,11 +56,9 @@ const LeftContainer = styled.div`
 
 const Header = () => {
   const location = useLocation();
-  const history = useHistory();
 
   return (
-    <HeaderContainer>
-      <Brand>前端考題</Brand>
+    <HeaderContainer maxWidth="md">
       <NavbarList>
         <Nav to="/" $active={location.pathname === "/"}>
           留言板
@@ -70,6 +70,7 @@ const Header = () => {
           上傳圖片
         </Nav>
       </NavbarList>
+      <Brand>前端考題</Brand>
     </HeaderContainer>
   );
 };

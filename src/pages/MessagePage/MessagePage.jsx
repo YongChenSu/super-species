@@ -11,6 +11,10 @@ const Root = styled.div`
   flex-direction: row;
 `;
 
+const PostHeader = styled.div`
+  width: 40%;
+`;
+
 const PostTitle = styled.div`
   font-weight: 900;
   font-size: 30px;
@@ -23,11 +27,13 @@ const CreatedAt = styled.div`
   padding: 10px 0px;
   border-bottom: solid 1px #ddd;
 `;
+
 const PostContent = styled.div`
   padding: 15px 0px;
   border-bottom: solid 1px #ddd;
   line-height: 26px;
   color: #333;
+  width: 60%;
 `;
 
 const Button = styled(Link)`
@@ -77,11 +83,11 @@ const Post = ({ posts, post, history }) => {
 
   return (
     <Root>
-      <div>
+      <PostHeader>
         {posts.map((post) => (
           <PostList key={post.id} post={post} />
         ))}
-      </div>
+      </PostHeader>
 
       <PostContent>
         <PostTitle>{post.title}</PostTitle>
