@@ -1,25 +1,25 @@
 {
   "files": {
-    "static/js/0.ef2b30d6.chunk.js": "/super-species/static/js/0.ef2b30d6.chunk.js",
-    "static/js/0.ef2b30d6.chunk.js.map": "/super-species/static/js/0.ef2b30d6.chunk.js.map",
-    "main.js": "/super-species/static/js/main.1c756b7c.chunk.js",
-    "main.js.map": "/super-species/static/js/main.1c756b7c.chunk.js.map",
-    "runtime-main.js": "/super-species/static/js/runtime-main.a773be64.js",
-    "runtime-main.js.map": "/super-species/static/js/runtime-main.a773be64.js.map",
-    "static/js/3.2b0d2e21.chunk.js": "/super-species/static/js/3.2b0d2e21.chunk.js",
-    "static/js/3.2b0d2e21.chunk.js.map": "/super-species/static/js/3.2b0d2e21.chunk.js.map",
-    "static/js/4.9d8a3944.chunk.js": "/super-species/static/js/4.9d8a3944.chunk.js",
-    "static/js/4.9d8a3944.chunk.js.map": "/super-species/static/js/4.9d8a3944.chunk.js.map",
-    "static/js/5.d10ed0b5.chunk.js": "/super-species/static/js/5.d10ed0b5.chunk.js",
-    "static/js/5.d10ed0b5.chunk.js.map": "/super-species/static/js/5.d10ed0b5.chunk.js.map",
-    "static/js/6.2684e092.chunk.js": "/super-species/static/js/6.2684e092.chunk.js",
-    "static/js/6.2684e092.chunk.js.map": "/super-species/static/js/6.2684e092.chunk.js.map",
+    "main.js": "/super-species/static/js/main.c635392a.chunk.js",
+    "main.js.map": "/super-species/static/js/main.c635392a.chunk.js.map",
+    "runtime-main.js": "/super-species/static/js/runtime-main.2ce8c71d.js",
+    "runtime-main.js.map": "/super-species/static/js/runtime-main.2ce8c71d.js.map",
+    "static/js/2.0308f7ff.chunk.js": "/super-species/static/js/2.0308f7ff.chunk.js",
+    "static/js/2.0308f7ff.chunk.js.map": "/super-species/static/js/2.0308f7ff.chunk.js.map",
+    "static/js/3.72104d5d.chunk.js": "/super-species/static/js/3.72104d5d.chunk.js",
+    "static/js/3.72104d5d.chunk.js.map": "/super-species/static/js/3.72104d5d.chunk.js.map",
+    "static/js/4.b12773df.chunk.js": "/super-species/static/js/4.b12773df.chunk.js",
+    "static/js/4.b12773df.chunk.js.map": "/super-species/static/js/4.b12773df.chunk.js.map",
+    "static/js/5.af7f9c28.chunk.js": "/super-species/static/js/5.af7f9c28.chunk.js",
+    "static/js/5.af7f9c28.chunk.js.map": "/super-species/static/js/5.af7f9c28.chunk.js.map",
+    "static/js/6.091fabf8.chunk.js": "/super-species/static/js/6.091fabf8.chunk.js",
+    "static/js/6.091fabf8.chunk.js.map": "/super-species/static/js/6.091fabf8.chunk.js.map",
     "index.html": "/super-species/index.html",
-    "static/js/3.2b0d2e21.chunk.js.LICENSE.txt": "/super-species/static/js/3.2b0d2e21.chunk.js.LICENSE.txt"
+    "static/js/2.0308f7ff.chunk.js.LICENSE.txt": "/super-species/static/js/2.0308f7ff.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a773be64.js",
-    "static/js/3.2b0d2e21.chunk.js",
-    "static/js/main.1c756b7c.chunk.js"
+    "static/js/runtime-main.2ce8c71d.js",
+    "static/js/2.0308f7ff.chunk.js",
+    "static/js/main.c635392a.chunk.js"
   ]
 }
