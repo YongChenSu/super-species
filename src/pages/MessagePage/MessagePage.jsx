@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { getPosts, getPost } from "../../WebAPI";
 import { Link } from "react-router-dom";
+import { Hidden } from "@material-ui/core/";
+import Container from "../../components/Container";
 import styled from "styled-components";
+import { MEDIA_QUERY_LG, PAGE_HEIGHT } from "../../constant/style";
 
 const Root = styled.div`
-  width: 80%;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
 `;
 
 const PostHeader = styled.div`
   width: 40%;
+  ${MEDIA_QUERY_LG} {
+    width: 100%;
+  }
 `;
 
 const PostTitle = styled.div`
@@ -33,7 +37,11 @@ const PostContent = styled.div`
   border-bottom: solid 1px #ddd;
   line-height: 26px;
   color: #333;
+
   width: 60%;
+  ${MEDIA_QUERY_LG} {
+    width: 0%;
+  }
 `;
 
 const Button = styled(Link)`
@@ -82,20 +90,22 @@ const Post = ({ posts, post, history }) => {
   if (!post) return null;
 
   return (
-    <Root>
-      <PostHeader>
-        {posts.map((post) => (
-          <PostList key={post.id} post={post} />
-        ))}
-      </PostHeader>
+    <Container maxWidthOnDesktop="60vw" maxWidthOnMobile="100vw">
+      <Root>
+        <PostHeader>
+          {posts.map((post) => (
+            <PostList key={post.id} post={post} />
+          ))}
+        </PostHeader>
 
-      <PostContent>
-        <PostTitle>{post.title}</PostTitle>
-        <CreatedAt>{new Date(post.createdAt).toLocaleString()}</CreatedAt>
-        <PostContent>{post.body}</PostContent>
-        <Button onClick={() => history.goBack()}>上一頁</Button>
-      </PostContent>
-    </Root>
+        <PostContent>
+          <PostTitle>{post.title}</PostTitle>
+          <CreatedAt>{new Date(post.createdAt).toLocaleString()}</CreatedAt>
+          <PostContent>{post.body}</PostContent>
+          <Button onClick={() => history.goBack()}>上一頁</Button>
+        </PostContent>
+      </Root>
+    </Container>
   );
 };
 

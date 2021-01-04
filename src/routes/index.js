@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { HashRouter as Switch, Route } from "react-router-dom";
 
-const BoardPage = lazy(() => import("../pages/BoardPage"));
+const BoardReduxPage = lazy(() => import("../pages/BoardReduxPage"));
+
 const MessagePage = lazy(() => import("../pages/MessagePage"));
 const UploadImgPage = lazy(() => import("../pages/UploadImgPage"));
 
@@ -9,10 +10,11 @@ const Routes = () => {
   return (
     <Suspense fallback={<div></div>}>
       <Switch>
-        <Route exact path="/" component={BoardPage} />
-        <Route path="/post/48">
+        {/* <Route exact path="/" component={BoardContextPage} /> */}
+        <Route exact path="/" component={BoardReduxPage} />
+        {/* <Route path="/post/48">
           <MessagePage />
-        </Route>
+        </Route> */}
         <Route path="/post/:id">
           <MessagePage />
         </Route>

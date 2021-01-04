@@ -1,26 +1,32 @@
-import styled from "styled-components";
+import React, { useState, memo, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { IconButton, Menu, Hidden } from "@material-ui/core/";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { MEDIA_QUERY_SM } from "../../../constant/style";
 
 const HeaderContainer = styled.div`
   height: 4rem;
-  display: flex;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: 1px solid #ccc;
-  padding: 0 2rem;
-  box-sizing: border-box;
-  background-color: #cde6ed;
+
+  border-bottom: 1px solid ${(props) => props.theme.color.lightGray2};
+  background-color: ${(props) => props.theme.color.white};
   z-index: 100;
 `;
 
-const Brand = styled.div`
-  font-size: 2rem;
-  font-weight: 700;
+const NavbarList = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 64px;
+
+  ${MEDIA_QUERY_SM} {
+    justify-content: center;
+  }
 `;
 
 const Nav = styled(Link)`
@@ -28,50 +34,98 @@ const Nav = styled(Link)`
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 4.5rem;
-  text-decoration: none;
+  width: 160px;
+  box-sizing: border-box;
   cursor: pointer;
+  padding: 0 24px;
+  text-decoration: none;
+  color: ${(props) => props.theme.color.darkGray};
 
   ${(props) =>
     props.$active &&
     `
-    background: rgba(94, 76, 76, 0.2);
+    background-color: ${props.theme.color.lightGray};
   `}
 `;
 
-const NavbarList = styled.div`
-  display: flex;
-  align-items: center;
-  height: 4rem;
-`;
+function NavMenu() {
+  const location = useLocation();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
-const LeftContainer = styled.div`
-  display: flex;
-  align-items: center;
+  const handleClick = useCallback(
+    (e) => {
+      setAnchorEl(e.currentTarget);
+    },
+    [setAnchorEl]
+  );
 
-  ${NavbarList} {
-    margin-left: 1rem;
-  }
-`;
+  const handleClose = useCallback(() => {
+    setAnchorEl(null);
+  }, [setAnchorEl]);
 
-const Header = () => {
+  return (
+    <div>
+      <IconButton
+        aria-label="more"
+        aria-controls="nav-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <MoreVertIcon />
+      </IconButton>
+      <Menu
+        id="nav-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={open}
+        onClose={handleClose}
+      >
+        <Nav to="/" onClick={handleClose} $active={location.pathname === "/"}>
+          留言板
+        </Nav>
+        <Nav
+          to="/post/48"
+          onClick={handleClose}
+          $active={location.pathname.includes("/post/48")}
+        >
+          訊息
+        </Nav>
+        <Nav
+          to="/upload-img"
+          onClick={handleClose}
+          $active={location.pathname === "/upload-img"}
+        >
+          圖片上傳
+        </Nav>
+      </Menu>
+    </div>
+  );
+}
+
+function Header() {
   const location = useLocation();
 
   return (
-    <HeaderContainer maxWidth="md">
+    <HeaderContainer>
       <NavbarList>
-        <Nav to="/" $active={location.pathname === "/"}>
-          留言板
-        </Nav>
-        <Nav to="/post/48" $active={location.pathname === "/post/48"}>
-          訊息
-        </Nav>
-        <Nav to="/upload-img" $active={location.pathname === "/upload-img"}>
-          上傳圖片
-        </Nav>
+        <Hidden only="xs">
+          <Nav to="/" $active={location.pathname === "/"}>
+            留言板
+          </Nav>
+          <Nav to="/post/48" $active={location.pathname.includes("/post/48")}>
+            訊息
+          </Nav>
+          <Nav to="/upload-img" $active={location.pathname === "/upload-img"}>
+            圖片上傳
+          </Nav>
+        </Hidden>
+        <Hidden smUp>
+          <NavMenu />
+        </Hidden>
       </NavbarList>
-      <Brand>前端考題</Brand>
     </HeaderContainer>
   );
-};
-export default Header;
+}
+
+export default memo(Header);

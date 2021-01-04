@@ -3,6 +3,10 @@ import { HashRouter as Router } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import Header from "./components/common/Header";
 import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+import theme from "./theme";
+import store from "./redux/store";
 
 const Content = styled.div`
   margin-top: 4rem;
@@ -10,14 +14,16 @@ const Content = styled.div`
 
 const App = () => {
   return (
-    <Container maxWidth="md">
-      <Router>
-        <Header />
-        <Content>
-          <Routes />
-        </Content>
-      </Router>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router>
+          <Header />
+          <Content>
+            <Routes />
+          </Content>
+        </Router>
+      </Provider>
+    </ThemeProvider>
   );
 };
 
